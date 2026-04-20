@@ -177,7 +177,7 @@ export default function Hero() {
         bg-[radial-gradient(circle_at_20%_30%,rgba(34,197,94,0.25),transparent_55%),radial-gradient(circle_at_80%_70%,rgba(34,197,94,0.18),transparent_60%),linear-gradient(to_bottom,#06110b,#020303_70%)] 
         flex items-center justify-center">
 
-          <div className="w-[95%] h-[92%] max-w-[1600px] rounded-[28px] 
+          <div className="w-[95%] h-[92%] max-w-[1600px] rounded-[28px] overflow-hidden
           bg-[#050505] border border-white/5
           shadow-[0_80px_200px_rgba(0,0,0,0.8),0_0_120px_rgba(34,197,94,0.08)] 
           px-12 py-12 md:px-20 md:py-16 
@@ -186,7 +186,7 @@ export default function Hero() {
             <div className="absolute inset-0 
             bg-[radial-gradient(circle_at_25%_30%,rgba(34,197,94,0.15),transparent_40%)] pointer-events-none" />
 
-            <div className="grid md:grid-cols-2 gap-16 items-end h-full">
+            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-end h-full">
 
               {/* LEFT */}
               <div>
@@ -194,7 +194,7 @@ export default function Hero() {
                   SOFTWARE DEVELOPER
                 </p>
 
-                <h1 className="text-[110px] md:text-[150px] leading-[0.85] font-black tracking-tight">
+                <h1 className="text-[48px] sm:text-[64px] md:text-[120px] leading-[0.9] font-black tracking-tight break-words">
                   Arkaprabha
                   <br />
                   <span className="text-white/70">Pal</span>
