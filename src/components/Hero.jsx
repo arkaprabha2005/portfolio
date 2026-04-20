@@ -5,9 +5,9 @@ export default function Hero() {
 
   // ---------------- STATE ----------------
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("work");
+  const [active, setActive] = useState("home");
 
-  // ---------------- SMOOTH SCROLL ----------------
+  // ---------------- CUSTOM SMOOTH SCROLL ----------------
   const smoothScroll = (id) => {
     const target = document.getElementById(id);
     if (!target) return;
@@ -66,7 +66,7 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ---------------- UNDERLINE ----------------
+  // ---------------- UNDERLINE (SMOOTH TRANSFORM) ----------------
   const containerRef = useRef(null);
   const itemRefs = {
     work: useRef(null),
@@ -76,7 +76,6 @@ export default function Hero() {
 
   const [underline, setUnderline] = useState({ x: 0, width: 0 });
 
-  // update underline on active change
   useEffect(() => {
     const el = itemRefs[active]?.current;
     const container = containerRef.current;
@@ -91,22 +90,6 @@ export default function Hero() {
       });
     }
   }, [active]);
-
-  // 🔥 INITIALIZE underline on mount
-  useEffect(() => {
-    const el = itemRefs.work.current;
-    const container = containerRef.current;
-
-    if (el && container) {
-      const elRect = el.getBoundingClientRect();
-      const parentRect = container.getBoundingClientRect();
-
-      setUnderline({
-        x: elRect.left - parentRect.left,
-        width: elRect.width,
-      });
-    }
-  }, []);
 
   return (
     <>
@@ -127,47 +110,48 @@ export default function Hero() {
         {!scrolled && <div>ARKA</div>}
 
         {/* NAV ITEMS */}
-        <div ref={containerRef} className="relative flex gap-8 items-center">
+        {/* NAV ITEMS */}
+<div ref={containerRef} className="relative flex gap-8 items-center">
 
-          <span
-  ref={itemRefs.work}
-  onClick={() => smoothScroll("work")}
-  className={`cursor-pointer transition-all duration-300
-    ${active === "work" ? "text-green-400" : "hover:opacity-70"}
-  `}
->
-  WORK
-</span>
+  <span
+    ref={itemRefs.work}
+    onClick={() => smoothScroll("work")}
+    className={`cursor-pointer hover:opacity-70 ${
+      active === "work" ? "text-green-500" : ""
+    }`}
+  >
+    WORK
+  </span>
 
-          <span
-  ref={itemRefs.about}
-  onClick={() => smoothScroll("about")}
-  className={`cursor-pointer transition-all duration-300
-    ${active === "about" ? "text-green-400" : "hover:opacity-70"}
-  `}
->
-  ABOUT
-</span>
+  <span
+    ref={itemRefs.about}
+    onClick={() => smoothScroll("about")}
+    className={`cursor-pointer hover:opacity-70 ${
+      active === "about" ? "text-green-500" : ""
+    }`}
+  >
+    ABOUT
+  </span>
 
-          <span
-  ref={itemRefs.contact}
-  onClick={() => smoothScroll("contact")}
-  className={`cursor-pointer transition-all duration-300
-    ${active === "contact" ? "text-green-400" : "hover:opacity-70"}
-  `}
->
-  CONTACT
-</span>
+  <span
+    ref={itemRefs.contact}
+    onClick={() => smoothScroll("contact")}
+    className={`cursor-pointer hover:opacity-70 ${
+      active === "contact" ? "text-green-500" : ""
+    }`}
+  >
+    CONTACT
+  </span>
 
-          {/* 🔥 UNDERLINE */}
-          <span
-            className="absolute bottom-[-4px] h-[1px] bg-current origin-left 
-            transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{
-              transform: `translateX(${underline.x}px) scaleX(${underline.width})`,
-            }}
-          />
-        </div>
+  {/* UNDERLINE */}
+  <span
+    className="absolute bottom-[-4px] h-[1px] bg-current origin-left 
+    transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+    style={{
+      transform: `translateX(${underline.x}px) scaleX(${underline.width})`,
+    }}
+  />
+</div>
       </div>
 
       {/* ---------------- HERO ---------------- */}
@@ -177,7 +161,7 @@ export default function Hero() {
         bg-[radial-gradient(circle_at_20%_30%,rgba(34,197,94,0.25),transparent_55%),radial-gradient(circle_at_80%_70%,rgba(34,197,94,0.18),transparent_60%),linear-gradient(to_bottom,#06110b,#020303_70%)] 
         flex items-center justify-center">
 
-          <div className="w-[95%] h-[92%] max-w-[1600px] rounded-[28px] overflow-hidden
+          <div className="w-[95%] h-[92%] max-w-[1600px] rounded-[28px] 
           bg-[#050505] border border-white/5
           shadow-[0_80px_200px_rgba(0,0,0,0.8),0_0_120px_rgba(34,197,94,0.08)] 
           px-12 py-12 md:px-20 md:py-16 
@@ -186,7 +170,7 @@ export default function Hero() {
             <div className="absolute inset-0 
             bg-[radial-gradient(circle_at_25%_30%,rgba(34,197,94,0.15),transparent_40%)] pointer-events-none" />
 
-            <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-end h-full">
+            <div className="grid md:grid-cols-2 gap-16 items-end h-full">
 
               {/* LEFT */}
               <div>
@@ -194,7 +178,7 @@ export default function Hero() {
                   SOFTWARE DEVELOPER
                 </p>
 
-                <h1 className="text-[48px] sm:text-[64px] md:text-[120px] leading-[0.9] font-black tracking-tight break-words">
+                <h1 className="text-[110px] md:text-[150px] leading-[0.85] font-black tracking-tight">
                   Arkaprabha
                   <br />
                   <span className="text-white/70">Pal</span>
