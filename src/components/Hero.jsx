@@ -178,7 +178,7 @@ export default function Hero() {
                   SOFTWARE DEVELOPER
                 </p>
 
-                <h1 className="text-[110px] md:text-[150px] leading-[0.85] font-black tracking-tight">
+                <h1 className="text-[48px] sm:text-[72px] md:text-[110px] lg:text-[150px] leading-[0.9] font-black tracking-tight">
                   Arkaprabha
                   <br />
                   <span className="text-white/70">Pal</span>
