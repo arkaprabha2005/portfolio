@@ -25,8 +25,6 @@ export default function Hero() {
         ? 2 * t * t
         : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
-    const nameRef = useRef(null);
-
     const animate = (time) => {
       if (!startTime) startTime = time;
 
@@ -68,35 +66,7 @@ export default function Hero() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ---------------- REVEAL ON SCROLL ----------------
-  useEffect(() => {
-  const elements = document.querySelectorAll(".reveal");
-
-  // Force reveal on load (hero case)
-  elements.forEach((el, i) => {
-    setTimeout(() => {
-      el.classList.add("active");
-    }, i * 150); // stagger
-  });
-
-  // Keep observer for other sections
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  elements.forEach((el) => observer.observe(el));
-
-  return () => observer.disconnect();
-}, []);
-
-  // ---------------- UNDERLINE ----------------
+  // ---------------- UNDERLINE (SMOOTH TRANSFORM) ----------------
   const containerRef = useRef(null);
   const itemRefs = {
     work: useRef(null),
@@ -139,46 +109,49 @@ export default function Hero() {
       >
         {!scrolled && <div>ARKA</div>}
 
-        <div ref={containerRef} className="relative flex gap-8 items-center">
+        {/* NAV ITEMS */}
+        {/* NAV ITEMS */}
+<div ref={containerRef} className="relative flex gap-8 items-center">
 
-          <span
-            ref={itemRefs.work}
-            onClick={() => smoothScroll("work")}
-            className={`cursor-pointer hover:opacity-70 ${
-              active === "work" ? "text-green-500" : ""
-            }`}
-          >
-            WORK
-          </span>
+  <span
+    ref={itemRefs.work}
+    onClick={() => smoothScroll("work")}
+    className={`cursor-pointer hover:opacity-70 ${
+      active === "work" ? "text-green-500" : ""
+    }`}
+  >
+    WORK
+  </span>
 
-          <span
-            ref={itemRefs.about}
-            onClick={() => smoothScroll("about")}
-            className={`cursor-pointer hover:opacity-70 ${
-              active === "about" ? "text-green-500" : ""
-            }`}
-          >
-            ABOUT
-          </span>
+  <span
+    ref={itemRefs.about}
+    onClick={() => smoothScroll("about")}
+    className={`cursor-pointer hover:opacity-70 ${
+      active === "about" ? "text-green-500" : ""
+    }`}
+  >
+    ABOUT
+  </span>
 
-          <span
-            ref={itemRefs.contact}
-            onClick={() => smoothScroll("contact")}
-            className={`cursor-pointer hover:opacity-70 ${
-              active === "contact" ? "text-green-500" : ""
-            }`}
-          >
-            CONTACT
-          </span>
+  <span
+    ref={itemRefs.contact}
+    onClick={() => smoothScroll("contact")}
+    className={`cursor-pointer hover:opacity-70 ${
+      active === "contact" ? "text-green-500" : ""
+    }`}
+  >
+    CONTACT
+  </span>
 
-          <span
-            className="absolute bottom-[-4px] h-[1px] bg-current origin-left 
-            transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{
-              transform: `translateX(${underline.x}px) scaleX(${underline.width})`,
-            }}
-          />
-        </div>
+  {/* UNDERLINE */}
+  <span
+    className="absolute bottom-[-4px] h-[1px] bg-current origin-left 
+    transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+    style={{
+      transform: `translateX(${underline.x}px) scaleX(${underline.width})`,
+    }}
+  />
+</div>
       </div>
 
       {/* ---------------- HERO ---------------- */}
@@ -201,17 +174,17 @@ export default function Hero() {
 
               {/* LEFT */}
               <div>
-                <p className="reveal text-[11px] tracking-[0.4em] text-white/30 mb-8">
+                <p className="text-[11px] tracking-[0.4em] text-white/30 mb-8">
                   SOFTWARE DEVELOPER
                 </p>
 
-                <h1 className="reveal text-[110px] md:text-[150px] leading-[0.85] font-black tracking-tight">
+                <h1 className="text-[48px] sm:text-[72px] md:text-[110px] lg:text-[150px] leading-[0.9] font-black tracking-tight">
                   Arkaprabha
                   <br />
                   <span className="text-white/70">Pal</span>
                 </h1>
 
-                <p className="reveal mt-8 text-[15px] text-white/50 max-w-[520px] leading-relaxed">
+                <p className="mt-8 text-[15px] text-white/50 max-w-[520px] leading-relaxed">
                   India based developer building clean, interactive web experiences 
                   focused on performance, motion and strong design systems.
                 </p>
@@ -249,6 +222,7 @@ export default function Hero() {
         </div>
       </section>
 
+      {/* TICKER */}
       <div className="mt-24 md:mt-32">
         <Ticker />
       </div>
