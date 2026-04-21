@@ -1,16 +1,85 @@
-# React + Vite
+# 🚀 Arkaprabha Pal — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, interactive developer portfolio built to showcase my work, skills, and design approach.
 
-Currently, two official plugins are available:
+## 🌐 Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+👉 https://portfolio-arka3.vercel.app/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ About the Project
 
-## Expanding the ESLint configuration
+This portfolio focuses on creating a clean, high-performance, and visually engaging experience.
+It highlights my work in frontend development, UI systems, and motion design.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+* React (Vite)
+* Tailwind CSS
+* GSAP (animations)
+* Lenis (smooth scrolling)
+
+---
+
+## 🎯 Features
+
+* Smooth scrolling experience
+* Scroll-based animations
+* Responsive design (mobile + desktop)
+* Interactive UI elements
+* Clean and minimal layout
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+ ├── components/
+ │   ├── Hero.jsx
+ │   ├── About.jsx
+ │   ├── Work.jsx
+ │   ├── Contact.jsx
+ │   └── ...
+ ├── App.jsx
+ ├── main.jsx
+ └── index.css
+```
+
+---
+
+## ⚙️ Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+npm install
+npm run dev
+```
+
+---
+
+## 📄 Resume
+
+You can download my resume directly from the website.
+
+---
+
+## 📬 Contact
+
+Feel free to reach out:
+
+* LinkedIn: https://linkedin.com/in/arkaprabha-pal-
+* Email:mailto:arka200515@gmail.com
+* 
+
+---
+
+## ⭐ Notes
+
+This portfolio is continuously evolving as I learn and experiment with new technologies and design ideas.
